@@ -3,7 +3,121 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Chester's School Path</title>
+  <title>Chester's School Path</title><!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Homelab Topology</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Homelab Topology</h1>
+    <nav>
+      <ul class="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="goals.html">Goals</a></li>
+        <li><a href="interests.html">Interests</a></li>
+        <li><a href="homelab-topology.html">Homelab Topology</a></li>
+        <li><a href="future.html">Future Plans</a></li>
+      </ul>
+    </nav>
+    <label class="switch themed">
+      <input type="checkbox" id="theme-toggle" onclick="toggleTheme()" />
+      <span class="slider"></span>
+    </label>
+  </header>
+
+  <main>
+    <section>
+      <h2>Overview</h2>
+      <p>This page documents the current state of my homelab and home network. It includes the hardware list, the network layout, and the core services. Some sections are placeholders while I finish wiring up monitoring and dashboards.</p>
+    </section>
+
+    <section>
+      <h2>Core Hardware</h2>
+      <h3>HP DL380 Gen9</h3>
+      <ul>
+        <li>Role: NAS + game servers (one part of the overall setup)</li>
+        <li>CPU: 2x Intel Xeon E5-2683 v4 (16 cores / 32 threads each)</li>
+        <li>Memory: 128 GB RAM</li>
+        <li>Boot drive: T-Force 512 GB 2.5" SATA SSD</li>
+        <li>Storage: 12x Seagate ST6000NM0195 6 TB</li>
+        <li>NICs: HP Ethernet 1Gb 4-port 331i Adapter; HP Ethernet 10Gb 2-port 560FLR-SFP+ Adapter; HP Ethernet 1Gb 4-port 366T Adapter</li>
+        <li>HBAs: Smart Array P440ar Controller; Smart HBA H241; HP 12G SAS Expander Card</li>
+      </ul>
+
+      <h3>UniFi Cloud Gateway Ultra (UCG-Ultra)</h3>
+      <ul>
+        <li>Role: WAN gateway, IDS/IPS, UniFi Network controller, VPN tunneling, and VLAN routing</li>
+        <li>Processor: Quad-core ARM Cortex-A53 at 1.5 GHz</li>
+        <li>System memory: 3 GB</li>
+        <li>On-board storage: 16 GB</li>
+        <li>Default WAN ports: (1) 2.5 GbE RJ45</li>
+        <li>Max WAN port count: 4</li>
+        <li>IDS/IPS throughput: 1 Gbps</li>
+        <li>Power method: USB Type-C (5V DC/3A, adapter included)</li>
+        <li>Max power consumption: 6.2 W</li>
+        <li>Supported voltage range: 100-240V AC</li>
+        <li>Dimensions: 141.8 x 127.6 x 30 mm (5.6 x 5 x 1.2 in)</li>
+        <li>Weight: 520 g (1.1 lb)</li>
+        <li>Other features: Multi-WAN load balancing, 0.96" LCM status display, supports 30+ UniFi devices and 300+ clients</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Network Layout</h2>
+      <div class="flex-section">
+        <img src="images/network-topology-placeholder.jpeg" alt="Homelab topology diagram" width="360" />
+        <p>Logical layout placeholder. This will become a simple diagram that shows WAN to router, core switch, VLANs, and service zones. I will keep it light and readable for visitors while still showing the key paths.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Services and Uptime</h2>
+      <ul>
+        <li>Core services: Placeholder - DNS, DHCP, reverse proxy</li>
+        <li>Apps: Placeholder - media, backups, dashboards</li>
+        <li>Uptime viewer: Placeholder - link to status page</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>Access Portal</h2>
+      <p>Family and friends access will be gated behind a username and password portal. The backend is not wired yet, so this section is a placeholder until the auth layer is live.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Chester's Web Project</p>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      if (body.classList.contains('light-mode')) {
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark-mode');
+      } else {
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+        localStorage.setItem('theme', 'light-mode');
+      }
+    }
+
+    window.onload = () => {
+      const savedTheme = localStorage.getItem('theme') || 'light-mode';
+      document.body.classList.add(savedTheme);
+      const toggle = document.getElementById('theme-toggle');
+      toggle.checked = savedTheme === 'dark-mode';
+    };
+  </script>
+</body>
+</html>
+
+
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
