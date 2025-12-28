@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Welcome to Chester's Site</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Welcome to Chester's Web Portfolio</h1>
+    <nav>
+      <ul class="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="goals.html">Goals</a></li>
+        <li><a href="interests.html">Interests</a></li>
+        <li><a href="school.html">School</a></li>
+        <li><a href="future.html">Future Plans</a></li>
+      </ul>
+    </nav>
+    <label class="switch themed">
+      <input type="checkbox" id="theme-toggle" onclick="toggleTheme()" />
+      <span class="slider"></span>
+    </label>
+  </header>
+
+  <main>
+    <section class="intro">
+      <h2>About Me</h2>
+      <p>Hi, I'm Chester. I'm passionate about technology, aerospace, and coffee. I live in a small rural town in California and currently study Information Technology. When I’m not at school or working, I’m probably building something - from home servers to game emulators.</p>
+    </section>
+
+    <section class="fun-facts">
+      <h2>Fun Facts</h2>
+      <ul>
+        <li>I drink way too much coffee - it's practically a personality trait.</li>
+        <li>I love airplanes, rockets, and anything that flies.</li>
+        <li>I’m learning how to pick locks (legally, don’t worry).</li>
+      </ul>
+    </section>
+
+    <section class="setup">
+      <h2>My Setup</h2>
+      <p>I spend a lot of time at my desk fine-tuning my home lab and personal rig. My setup includes a quad-monitor display, high-performance components, and a clean, practical workspace. I use this space for system configuration, virtualization, testing, and keeping an eye on all the machines I manage both physical and virtual.</p>
+      <img src="images/tech-setup.jpeg" alt="Desktop Setup" class="responsive-img" />
+    </section>
+
+    <section class="images">
+      <h2>A Glimpse Into My Life</h2>
+      <div class="image-gallery">
+        <figure>
+          <img src="images/plane.jpeg" alt="A cool jet" class="responsive-img" />
+          <figcaption>The Blue Angels fly the F/A-18 Super Hornet — a twin-engine, supersonic, multirole fighter jet used by the U.S. Navy. It’s known for its power, agility, and reliability. Watching them fly in tight formations showcases just how precise and capable both the aircraft and pilots are.</figcaption>
+        </figure>
+        <figure>
+          <img src="images/server-stack.jpeg" alt="My home lab rack" class="responsive-img" />
+          <figcaption>My home server rack project</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="skills">
+      <h2>Skills & Tools</h2>
+      <ul>
+        <li>Operating Systems: Windows, Linux (Ubuntu, Proxmox)</li>
+        <li>Virtualization: Proxmox, VirtualBox</li>
+        <li>Web: HTML, CSS, basic JavaScript</li>
+        <li>Hardware: Custom PC builds, server maintenance</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Chester's Web Project</p>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      if (body.classList.contains('light-mode')) {
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark-mode');
+      } else {
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+        localStorage.setItem('theme', 'light-mode');
+      }
+    }
+
+    window.onload = () => {
+      const savedTheme = localStorage.getItem('theme') || 'light-mode';
+      document.body.classList.add(savedTheme);
+      const toggle = document.getElementById('theme-toggle');
+      toggle.checked = savedTheme === 'dark-mode';
+    };
+  </script>
+</body>
+</html>

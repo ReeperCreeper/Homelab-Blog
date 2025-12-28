@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chester's Interests</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header>
+      <h1>Chester's Interests</h1>
+      <nav>
+        <ul class="navbar">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="goals.html">Goals</a></li>
+          <li><a href="interests.html">Interests</a></li>
+          <li><a href="school.html">School</a></li>
+          <li><a href="future.html">Future Plans</a></li>
+        </ul>
+      </nav>
+      <label class="switch themed">
+        <input type="checkbox" id="theme-toggle" onclick="toggleTheme()" />
+        <span class="slider"></span>
+      </label>
+    </header>
+
+    <main>
+      <section>
+        <h2>Home Servers & Tech</h2>
+        <div class="content-row">
+          <div class="text">
+            <p>I’ve always been fascinated by how things work - especially computers and networks. I love building home servers for personal cloud storage, game hosting, and media streaming. Setting up file sharing, managing backups, and experimenting with virtualization is something I genuinely enjoy.</p>
+            <p>My main computer is built for performance and multitasking. It runs on a Ryzen 7 9700X processor with 64GB of DDR5 RAM, dual 2TB Crucial P3 NVMe SSDs, and a 4070 Super GPU. I use a quad-monitor setup, which makes multitasking, monitoring systems, and working on creative projects incredibly efficient and enjoyable.</p>
+          </div>
+          <div class="image">
+            <img src="images/tech-setup.jpeg" alt="Tech setup" class="responsive-img" />
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Planes and Rockets</h2>
+        <div class="content-row reverse">
+          <div class="image">
+            <img src="images/falcon-9.jpeg" alt="Falcon 9 Rocket Launch" class="responsive-img" />
+          </div>
+          <div class="text">
+            <p>I’m a huge aerospace nerd. What fascinates me most is the history and science behind flight and space exploration - from the Wright brothers to Saturn V rockets. I love learning how engineers overcame impossible challenges with limited technology, and how that shaped the world we live in. There's something inspiring about the constant push for innovation in aerospace.</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Creative Projects</h2>
+        <p>I enjoy building things from scratch, whether it’s a retro game emulator setup, a website, or a fictional universe. I like writing stories that blend tech, science fiction, and just a little humor. It’s a fun way to use my imagination and make people think - or laugh.</p>
+        <p>Over the last few years, I’ve also developed an interest in lockpicking - not for anything shady, but because it’s a fun mental challenge. It’s like solving a physical puzzle where every click and tension adjustment matters. I enjoy practicing with different locks and techniques to sharpen my focus and patience.</p>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2025 Chester's Web Project</p>
+    </footer>
+
+    <script>
+      function toggleTheme() {
+        const body = document.body;
+        if (body.classList.contains('light-mode')) {
+          body.classList.remove('light-mode');
+          body.classList.add('dark-mode');
+          localStorage.setItem('theme', 'dark-mode');
+        } else {
+          body.classList.remove('dark-mode');
+          body.classList.add('light-mode');
+          localStorage.setItem('theme', 'light-mode');
+        }
+      }
+
+      window.onload = () => {
+        const savedTheme = localStorage.getItem('theme') || 'light-mode';
+        document.body.classList.add(savedTheme);
+        const toggle = document.getElementById('theme-toggle');
+        toggle.checked = savedTheme === 'dark-mode';
+      };
+    </script>
+  </body>
+</html>

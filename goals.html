@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chester's Goals</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Chester's Goals</h1>
+    <nav>
+      <ul class="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="goals.html">Goals</a></li>
+        <li><a href="interests.html">Interests</a></li>
+        <li><a href="school.html">School</a></li>
+        <li><a href="future.html">Future Plans</a></li>
+      </ul>
+    </nav>
+    <label class="switch themed">
+      <input type="checkbox" id="theme-toggle" onclick="toggleTheme()" />
+      <span class="slider"></span>
+    </label>
+  </header>
+
+  <main>
+    <section>
+      <h2>My Short-Term Goals</h2>
+      <p>Right now, my biggest focus is on finishing school and maintaining good grades. I'm also working to improve my time management skills and stay consistent with my study habits. Learning more about IT systems and getting hands-on experience through projects is a huge priority for me this year.</p>
+      <img src="images/schoolwork.jpeg" alt="Studying with a laptop" class="responsive-img" />
+      <img src="images/server-stack.jpeg" alt="My home lab rack" class="responsive-img" />
+    </section>
+
+    <section>
+      <h2>My Technical Goals</h2>
+      <p>I'm currently building a home lab where I can practice networking, server management, and virtualization. My goal is to learn how to set up and maintain real-world systems that companies use, so I can be job-ready right after graduation. I also plan to get certified in areas like CompTIA, Linux, or Azure.</p>
+    </section>
+
+    <section>
+      <h2>My Long-Term Vision</h2>
+      <p>Eventually, I’d love to work in aerospace or data center infrastructure - somewhere I can blend my love of hardware with high-stakes technical work. Whether I’m designing systems for satellites or maintaining enterprise servers, I want to be doing work that challenges me and helps others.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Chester's Web Project</p>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      if (body.classList.contains('light-mode')) {
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark-mode');
+      } else {
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+        localStorage.setItem('theme', 'light-mode');
+      }
+    }
+
+    window.onload = () => {
+      const savedTheme = localStorage.getItem('theme') || 'light-mode';
+      document.body.classList.add(savedTheme);
+      const toggle = document.getElementById('theme-toggle');
+      toggle.checked = savedTheme === 'dark-mode';
+    };
+  </script>
+</body>
+</html>

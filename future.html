@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Chester's Future Plans</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header>
+    <h1>Chester's Future Plans</h1>
+    <nav>
+      <ul class="navbar">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="goals.html">Goals</a></li>
+        <li><a href="interests.html">Interests</a></li>
+        <li><a href="school.html">School</a></li>
+        <li><a href="future.html">Future Plans</a></li>
+      </ul>
+    </nav>
+    <label class="switch themed">
+      <input type="checkbox" id="theme-toggle" onclick="toggleTheme()" />
+      <span class="slider"></span>
+    </label>
+  </header>
+
+  <main>
+    <section>
+      <h2>Looking Ahead</h2>
+      <div class="flex-section">
+        <img src="images/future-sunset.jpeg" alt="Person looking towards the future" width="360" />
+        <p>As I move forward with my education and career, I'm exploring a few different paths where I can put my skills to good use. One possibility is staying with Safeway and moving up into their IT department. Since I'm already familiar with the company and how it operates, it could be a great opportunity to apply my IT training in a familiar environment and grow internally.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>Exploring the Data Center World</h2>
+      <div class="flex-section">
+        <p>Another strong interest of mine is working in a data center environment. I love the idea of managing large-scale hardware systems, optimizing network infrastructure, and contributing to high-availability systems that keep the digital world running. The hands-on nature of data center work fits well with my strengths and interests in system administration and infrastructure.</p>
+        <img src="images/datacenter.jpeg" alt="Data center servers and network equipment" width="360" />
+      </div>
+    </section>
+
+    <section>
+      <h2>My Long-Term Vision</h2>
+      <p>No matter which path I take, my goal is to stay grounded in tech and keep learning. Whether it's cloud architecture, enterprise networking, or scripting to automate complex systems, I want to continue developing as a professional who can solve real problems in efficient and innovative ways.</p>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Chester's Web Project</p>
+  </footer>
+
+  <script>
+    function toggleTheme() {
+      const body = document.body;
+      if (body.classList.contains('light-mode')) {
+        body.classList.remove('light-mode');
+        body.classList.add('dark-mode');
+        localStorage.setItem('theme', 'dark-mode');
+      } else {
+        body.classList.remove('dark-mode');
+        body.classList.add('light-mode');
+        localStorage.setItem('theme', 'light-mode');
+      }
+    }
+
+    window.onload = () => {
+      const savedTheme = localStorage.getItem('theme') || 'light-mode';
+      document.body.classList.add(savedTheme);
+      const toggle = document.getElementById('theme-toggle');
+      toggle.checked = savedTheme === 'dark-mode';
+    };
+  </script>
+</body>
+</html>
